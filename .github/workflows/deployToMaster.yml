@@ -1,28 +1,4 @@
-<<<<<<< HEAD
-name: DeployToMaster
 
-# Trigger the workflow on push and 
-# pull request events on the production branch
-on:
-  push:
-    branches:
-      - master
-      
-# Authenticate to the the server viaa  
-# and run our deployment script 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Deploy to server
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST2 }}
-          username: ${{ secrets.USERNAME }}
-          port: ${{ secrets.PORT }}
-          key: ${{ secrets.SSHKEY2 }}
-=======
 name: DeployToMaster
 
 # Trigger the workflow on push and 
@@ -46,5 +22,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSHKEY2 }}
->>>>>>> 8a37e36 (Testing update)
           script: "cd /var/www/changeDemo && chmod +x ./.github/deploy-master-commands.sh && ./.github/deploy-master-commands.sh"
